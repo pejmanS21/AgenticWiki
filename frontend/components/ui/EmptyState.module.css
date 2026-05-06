@@ -1,0 +1,19 @@
+.empty {
+  align-items: center;
+  background: var(--surface);
+  border: 1px dashed #c4ccd8;
+  border-radius: 22px;
+  color: var(--muted);
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding: 38px 24px;
+  text-align: center;
+}
+
+.title {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 800;
+}
+

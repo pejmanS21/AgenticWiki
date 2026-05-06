@@ -1,0 +1,17 @@
+.graphWrap {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  height: 650px;
+  overflow: hidden;
+}
+
+.graph {
+  height: 100%;
+  width: 100%;
+}
+
+.edgeList {
+  max-height: 420px;
+  overflow: auto;
+}
+

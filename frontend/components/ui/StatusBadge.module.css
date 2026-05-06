@@ -1,0 +1,29 @@
+.badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  text-transform: capitalize;
+}
+
+.neutral {
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
+.success {
+  background: #dcfae6;
+  color: var(--success);
+}
+
+.warning {
+  background: #fef0c7;
+  color: var(--warning);
+}
+
+.danger {
+  background: #fee4e2;
+  color: var(--danger);
+}
+

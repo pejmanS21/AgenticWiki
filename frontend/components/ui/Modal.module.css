@@ -1,0 +1,20 @@
+.backdrop {
+  align-items: center;
+  background: rgba(16, 24, 40, 0.45);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  z-index: 50;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  max-width: 680px;
+  padding: 24px;
+  width: min(100%, 680px);
+}
+

@@ -1,0 +1,44 @@
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.input,
+.textarea,
+.select {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  min-height: 42px;
+  outline: none;
+  padding: 11px 12px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+  width: 100%;
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(49, 88, 212, 0.12);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+

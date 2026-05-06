@@ -1,0 +1,23 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.compact {
+  padding: 16px;
+}
+
+.interactive {
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.interactive:hover {
+  border-color: #b8c4d6;
+  transform: translateY(-2px);
+}
+

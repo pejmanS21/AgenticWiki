@@ -75,7 +75,6 @@ class IngestionService:
                 )
 
             analysis = await self.llm.analyze_document(self.settings_repo.get(), document.title, text)
-            analysis = DocumentAnalysis(**analysis)  # type: ignore
             document.summary = analysis.summary
             document.key_points_json = to_json(analysis.key_points)
             document.tags_json = to_json(analysis.tags)

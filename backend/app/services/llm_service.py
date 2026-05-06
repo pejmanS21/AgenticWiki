@@ -30,10 +30,9 @@ class DerivedNote(BaseModel):
 
 
 class LLMService:
-    def build_agent(self, settings: UserSettings, output_type: type[Any] | None = None) -> Agent:
+    def build_agent(self, settings: UserSettings, output_type: type[Any] | None = str) -> Agent:
         model = self._build_model(settings)
-        return Agent(model=model, system_prompt=settings.system_prompt)
-        # return Agent(model=model, output_type=output_type, system_prompt=settings.system_prompt)
+        return Agent(model=model, output_type=output_type, system_prompt=settings.system_prompt)
 
     async def analyze_document(self, settings: UserSettings, title: str, text: str) -> DocumentAnalysis:
         logger.info("Running document analysis for %s", title)
@@ -45,7 +44,8 @@ class LLMService:
         try:
             agent = self.build_agent(settings, DocumentAnalysis)
             result = await agent.run(prompt)
-            return json.loads(result.output)
+            # return json.loads(result.output)
+            return result.output
         except Exception as exc:
             logger.warning("LLM analysis failed, using fallback: %s", exc)
             return self._fallback_analysis(text)

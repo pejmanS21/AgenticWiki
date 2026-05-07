@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { AlertTriangle, CircleCheckBig, FilePlus2, MessageSquareText, Network, RefreshCw, SlidersHorizontal } from "lucide-react";
 import { api } from "@/lib/api";
 import type { DocumentListItem } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
@@ -40,15 +41,15 @@ export function DashboardClient() {
           <p className="muted">Upload, index, search, and synthesize documents without losing control of your data.</p>
         </div>
         <div className="row">
-          <Link href="/upload"><Button>Upload documents</Button></Link>
-          <Link href="/search"><Button variant="secondary">Ask knowledge base</Button></Link>
+          <Link href="/upload"><Button><FilePlus2 size={16} />Upload documents</Button></Link>
+          <Link href="/search"><Button variant="secondary"><MessageSquareText size={16} />Ask knowledge base</Button></Link>
         </div>
       </section>
 
       <section className="grid three">
-        <Card><h2>{summary.ready}</h2><p className="muted">Ready documents</p></Card>
-        <Card><h2>{summary.processing}</h2><p className="muted">Processing now</p></Card>
-        <Card><h2>{summary.failed}</h2><p className="muted">Needs attention</p></Card>
+        <Card><div className="metric"><CircleCheckBig className="metricIcon" size={18} /><span className="metricValue">{summary.ready}</span><p className="muted">Ready documents</p></div></Card>
+        <Card><div className="metric"><RefreshCw className="metricIcon" size={18} /><span className="metricValue">{summary.processing}</span><p className="muted">Processing now</p></div></Card>
+        <Card><div className="metric"><AlertTriangle className="metricIcon" size={18} /><span className="metricValue">{summary.failed}</span><p className="muted">Needs attention</p></div></Card>
       </section>
 
       <section className="grid two">
@@ -70,10 +71,10 @@ export function DashboardClient() {
           <Card>
             <h2>Quick actions</h2>
             <div className="stack">
-              <Link href="/upload"><Button variant="secondary">Add source files</Button></Link>
-              <Link href="/search"><Button variant="secondary">Run semantic search</Button></Link>
-              <Link href="/graph"><Button variant="secondary">Explore graph</Button></Link>
-              <Link href="/settings"><Button variant="secondary">Tune system prompt</Button></Link>
+              <Link href="/upload"><Button variant="secondary"><FilePlus2 size={16} />Add source files</Button></Link>
+              <Link href="/search"><Button variant="secondary"><MessageSquareText size={16} />Run semantic search</Button></Link>
+              <Link href="/graph"><Button variant="secondary"><Network size={16} />Explore graph</Button></Link>
+              <Link href="/settings"><Button variant="secondary"><SlidersHorizontal size={16} />Tune system prompt</Button></Link>
             </div>
           </Card>
           <Card>
@@ -85,4 +86,3 @@ export function DashboardClient() {
     </div>
   );
 }
-

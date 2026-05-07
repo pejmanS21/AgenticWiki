@@ -18,6 +18,11 @@ export function GraphClient() {
   const [selected, setSelected] = useState<GraphNode | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const relatedExamples = [
+    { source: "Q3 Board Deck.pdf", target: "Revenue Assumptions.md", reason: "shared metric definitions", weight: 0.86 },
+    { source: "Security Audit 2026.pdf", target: "Vendor Risk Register.xlsx", reason: "same control evidence", weight: 0.81 },
+    { source: "Product PRD - Search.md", target: "Customer Interview Notes.txt", reason: "topic overlap in ranking quality", weight: 0.76 }
+  ];
 
   useEffect(() => {
     api
@@ -75,7 +80,20 @@ export function GraphClient() {
       </section>
 
       {!graph || graph.nodes.length === 0 ? (
-        <EmptyState title="Graph empty" message="Upload and ingest multiple documents to build relationships." />
+        <section className="grid two">
+          <EmptyState title="Graph empty" message="Upload and ingest multiple documents to build relationships." />
+          <Card>
+            <h2>Related documents example</h2>
+            <div className="stack">
+              {relatedExamples.map((example) => (
+                <Card compact key={`${example.source}-${example.target}`}>
+                  <strong>{example.source} ↔ {example.target}</strong>
+                  <p className="muted">{example.reason} · similarity {example.weight.toFixed(2)}</p>
+                </Card>
+              ))}
+            </div>
+          </Card>
+        </section>
       ) : (
         <section className="grid two">
           <Card>
@@ -107,10 +125,20 @@ export function GraphClient() {
                 ))}
               </div>
             </Card>
+            <Card>
+              <h2>Related documents example</h2>
+              <div className="stack">
+                {relatedExamples.map((example) => (
+                  <Card compact key={`${example.source}-${example.target}`}>
+                    <strong>{example.source} ↔ {example.target}</strong>
+                    <p className="muted">{example.reason} · similarity {example.weight.toFixed(2)}</p>
+                  </Card>
+                ))}
+              </div>
+            </Card>
           </div>
         </section>
       )}
     </div>
   );
 }
-

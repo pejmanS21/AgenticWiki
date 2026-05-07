@@ -5,20 +5,20 @@
 
 .label {
   color: var(--text);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.84rem;
+  font-weight: 750;
 }
 
 .input,
 .textarea,
 .select {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--text);
-  min-height: 42px;
+  min-height: 38px;
   outline: none;
-  padding: 11px 12px;
+  padding: 9px 11px;
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease;
@@ -34,11 +34,10 @@
 .textarea:focus,
 .select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(49, 88, 212, 0.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .error {
   color: var(--danger);
   font-size: 0.9rem;
 }
-

@@ -1,13 +1,13 @@
 .dropzone {
   align-items: center;
-  background: linear-gradient(180deg, #ffffff, #f4f7fb);
-  border: 2px dashed #b8c4d6;
-  border-radius: 24px;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
   cursor: pointer;
   display: grid;
   gap: 12px;
   justify-items: center;
-  min-height: 260px;
+  min-height: 230px;
   padding: 28px;
   text-align: center;
   transition:
@@ -17,8 +17,12 @@
 
 .dropzone:hover,
 .active {
-  background: #edf3ff;
+  background: var(--accent-soft);
   border-color: var(--accent);
+}
+
+.dropzoneIcon {
+  color: var(--accent-alt);
 }
 
 .fileInput {
@@ -42,4 +46,3 @@
   height: 100%;
   transition: width 200ms ease;
 }
-

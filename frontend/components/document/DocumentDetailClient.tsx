@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FilePlus2, Network, RefreshCw } from "lucide-react";
 import { api } from "@/lib/api";
 import type { DocumentDetail } from "@/lib/types";
 import { formatDate, statusTone } from "@/lib/utils";
@@ -73,9 +74,9 @@ export function DocumentDetailClient({ id }: { id: number }) {
           </div>
         </div>
         <div className="row">
-          <Button variant="secondary" onClick={rerun} loading={working}>Rerun analysis</Button>
-          <Button onClick={() => setNoteOpen(true)}>Create derived note</Button>
-          <Link href={`/graph?document=${document.id}`}><Button variant="ghost">Open graph neighbors</Button></Link>
+          <Button variant="secondary" onClick={rerun} loading={working}><RefreshCw size={16} />Rerun analysis</Button>
+          <Button onClick={() => setNoteOpen(true)}><FilePlus2 size={16} />Create derived note</Button>
+          <Link href={`/graph?document=${document.id}`}><Button variant="ghost"><Network size={16} />Open graph neighbors</Button></Link>
         </div>
       </section>
 
@@ -132,7 +133,7 @@ export function DocumentDetailClient({ id }: { id: number }) {
       <Modal open={noteOpen} title="Create derived note" onClose={() => setNoteOpen(false)}>
         <div className="stack">
           <Textarea label="Note instructions" value={prompt} onChange={(event) => setPrompt(event.target.value)} />
-          <Button onClick={createNote} loading={working}>Generate note</Button>
+          <Button onClick={createNote} loading={working}><FilePlus2 size={16} />Generate note</Button>
         </div>
       </Modal>
     </div>

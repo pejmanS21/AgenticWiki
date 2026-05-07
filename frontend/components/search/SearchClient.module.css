@@ -5,9 +5,9 @@
 }
 
 .answer {
-  background: #f7f9fc;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 8px;
   line-height: 1.65;
   padding: 18px;
 }
@@ -22,4 +22,3 @@
     grid-template-columns: 1fr;
   }
 }
-

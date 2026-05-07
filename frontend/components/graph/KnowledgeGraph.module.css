@@ -1,8 +1,9 @@
 .graphWrap {
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 8px;
   height: 650px;
   overflow: hidden;
+  background: var(--surface);
 }
 
 .graph {
@@ -14,4 +15,3 @@
   max-height: 420px;
   overflow: auto;
 }
-

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { AppShell } from "@/components/layout/AppShell";
+import { ThemeController } from "@/components/layout/ThemeController";
 
 export const metadata: Metadata = {
   title: "Local AI Knowledge Space",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <ThemeController />
         <AppShell>{children}</AppShell>
       </body>
     </html>

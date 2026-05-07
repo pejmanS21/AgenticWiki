@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import { Search } from "lucide-react";
 import { api } from "@/lib/api";
 import type { SearchResponse } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
@@ -43,7 +44,7 @@ export function SearchClient() {
       <Card>
         <form className={styles.searchBox} onSubmit={submit}>
           <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Ask: What are the main risks in my uploaded docs?" />
-          <Button loading={loading}>Search + answer</Button>
+          <Button loading={loading}><Search size={16} />Search + answer</Button>
         </form>
         {error ? <p style={{ color: "var(--danger)" }}>{error}</p> : null}
       </Card>
@@ -85,4 +86,3 @@ export function SearchClient() {
     </div>
   );
 }
-

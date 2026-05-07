@@ -2,6 +2,7 @@
 
 import { DragEvent, useState } from "react";
 import Link from "next/link";
+import { FileUp, UploadCloud } from "lucide-react";
 import { api } from "@/lib/api";
 import type { DocumentListItem } from "@/lib/types";
 import { statusTone } from "@/lib/utils";
@@ -72,6 +73,7 @@ export function UploadClient() {
               accept=".pdf,.md,.markdown,.txt,image/*"
               onChange={(event) => addFiles(event.target.files)}
             />
+            <UploadCloud className={styles.dropzoneIcon} size={28} strokeWidth={1.8} />
             <strong>Drop files here or click to choose</strong>
             <span className="muted">OCR for images, PyMuPDF for PDFs, direct parsing for text notes.</span>
           </label>
@@ -90,7 +92,7 @@ export function UploadClient() {
                 <div className={styles.progressOuter}>
                   <div className={styles.progressInner} style={{ width: `${progress}%` }} />
                 </div>
-                <Button onClick={upload} loading={uploading} disabled={!files.length}>Upload and ingest</Button>
+                <Button onClick={upload} loading={uploading} disabled={!files.length}><FileUp size={16} />Upload and ingest</Button>
               </>
             ) : (
               <EmptyState title="No files queued" message="Choose documents to start ingestion." />

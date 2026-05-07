@@ -1,19 +1,24 @@
 .button {
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   display: inline-flex;
-  font-weight: 700;
+  font-weight: 750;
   gap: 8px;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
+  min-height: 38px;
+  padding: 0 14px;
   transition:
     background 160ms ease,
     border-color 160ms ease,
     color 160ms ease,
     transform 120ms ease;
+  white-space: nowrap;
+}
+
+.button svg {
+  flex: 0 0 auto;
 }
 
 .button:hover:not(:disabled) {
@@ -39,9 +44,15 @@
 }
 
 .secondary {
-  background: var(--surface-soft);
+  background: var(--surface);
   border-color: var(--border);
   color: var(--text);
+}
+
+.secondary:hover:not(:disabled),
+.ghost:hover:not(:disabled) {
+  background: var(--surface-soft);
+  border-color: var(--border-strong);
 }
 
 .ghost {
@@ -51,7 +62,7 @@
 }
 
 .danger {
-  background: #fee4e2;
+  background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--danger) 24%, var(--border));
   color: var(--danger);
 }
-

@@ -75,10 +75,12 @@ class UserSettings(SQLModel, table=True):
     llm_model: str = "llama3.1"
     llm_base_url: str = "http://localhost:11434/v1"
     llm_api_key: str = ""
+    llm_profiles_json: str = "[]"
+    selected_llm_profile_id: str = "default"
+    ui_theme: str = "device"
     embedding_provider: str = "local-hash"
     embedding_model: str = "hash-384"
     system_prompt: str = (
         "You are a precise research assistant. Answer with grounded citations from provided context."
     )
     updated_at: datetime = Field(default_factory=utc_now)
-
